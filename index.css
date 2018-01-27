@@ -6,3 +6,6 @@ h1, .js-form {
  height: 18px;
  width: 50px;
 }
+.hidden {
+  display: none;
+}

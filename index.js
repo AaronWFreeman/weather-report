@@ -38,31 +38,34 @@ function get_One_Day_DataFromApi(location, callBack) {
  $.ajax(one_Day_Settings);
 }
 
-function get_Ten_Day_DataFromApi(location, callBack) {
- const ten_Day_Settings = {
-   url: AW_Ten_Day_Forecast_URL + location,
-   data: {
-     details: true,
-     apikey: AW_API_KEY,
-     language: 'en-us'
-   },
-   dataType: 'JSON',
-   type: 'get',
-   success: callBack
- }
- $.ajax(ten_Day_Settings);
-}
+// function get_Ten_Day_DataFromApi(location, callBack) {
+//  const ten_Day_Settings = {
+//    url: AW_Ten_Day_Forecast_URL + location,
+//    data: {
+//      details: true,
+//      apikey: AW_API_KEY,
+//      language: 'en-us'
+//    },
+//    dataType: 'JSON',
+//    type: 'get',
+//    success: callBack
+//  }
+//  $.ajax(ten_Day_Settings);
+// }
 
 function renderForecast(data) {
  let forecast = Object.keys(data).map(property => {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
  $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
+ console.log(data);
+ console.log(data.Day.RainProbability);
 }
 
 function watchLocationClick() {
  $('.js-search-results').on('click', 'a' , function(event) {
    event.preventDefault();
+   $('.js-search-results').addClass('hidden');
    let location = $(this).attr('data-location-key');
    get_One_Day_DataFromApi(location, displayForecastData);
  } )
@@ -85,6 +88,7 @@ function displayForecastData(data) {
 function watchSubmit() {
 $('.js-form').on('submit', event => {
  event.preventDefault();
+ $('.js-search-results').removeClass('hidden');
  let queryTarget = $(event.currentTarget).find('.js-query');
  let searchTerm = queryTarget.val();
  queryTarget.val("");
