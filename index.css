@@ -1,11 +1,3 @@
-.meta-container {
-  max-width: 100%;
-  height: 100%;
-  /*margin: 20px auto;*/
-  background-image: url(https://s.yimg.com/os/mit/media/m/weather/images/fallbacks/lead/cloudy_d-e618500.jpg);
-
-}
-
 .container {
   max-width: 1000px;
   height: 850px;
@@ -15,7 +7,7 @@
 }
 
 * {
-  /*border: 1px solid black;*/
+  border: 1px solid black;
   padding: 1px;
 }
 
@@ -28,6 +20,21 @@ header {
 
 .js-form, .row, .js-search-results, .js-forecast-results {
  text-align: center;
+}
+
+.js-forecast-results {
+  height: 70px;
+  width: 70px;
+  margin: 0 20px;
+}
+.js-forecast-phrase {
+  height: 60px;
+  width: 90px;
+}
+
+.js-forecast-temp {
+  height: 60px;
+  width: 90px;
 }
 
 h1 {

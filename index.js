@@ -57,11 +57,14 @@ function renderForecast(data) {
  let forecast = Object.keys(data).map(property => {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
-    $('.js-forecast-results').html(`<div class ='icon ${data.Date} ${data.Day.IconNumber}'</div>`);
+ let iconNumber = data.Day.Icon;
+ $('.js-forecast-results').addClass(`Icon-${iconNumber} Icon`);
+ $('.js-forecast-phrase').html(data.Day.IconPhrase);
+ $('.js-forecast-temp').html(data.Temperature.Minimum.Value + " º " + data.Temperature.Minimum.Unit)
  // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
  console.log(data);
  console.log(data.Date);
- console.log(data.Temperature.Mininum);
+ console.log(data.Temperature.Minimum.Value, data.Temperature.Minimum.Unit);
  console.log(data.Temperature.Maximum);
  console.log(data.Day.Icon);
  console.log(data.Day.IconPhrase);

@@ -1,3 +1,6 @@
+.Icon {
+  background-repeat: no-repeat;
+}
 .Icon-1 {
   background-image: url(https://developer.accuweather.com/sites/default/files/01-s.png);
 }
@@ -74,7 +77,7 @@
 }
 .Icon-20 {
   background-image: url(https://developer.accuweather.com/sites/default/files/20-s.png);
-
+  background-repeat: no-repeat;
 }
 .Icon-21 {
   background-image: url(https://developer.accuweather.com/sites/default/files/21-s.png);
