@@ -53,21 +53,20 @@ function get_One_Day_DataFromApi(location, callBack) {
 //  $.ajax(ten_Day_Settings);
 // }
 
+
 function renderForecast(data) {
  let forecast = Object.keys(data).map(property => {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
  let iconNumber = data.Day.Icon;
+ let location = data
  $('.js-forecast-results').addClass(`Icon-${iconNumber} Icon`);
  $('.js-forecast-phrase').html(data.Day.IconPhrase);
- $('.js-forecast-temp').html(data.Temperature.Minimum.Value + " º " + data.Temperature.Minimum.Unit)
+ $('.js-forecast-temp').html(`Low:  ${data.Temperature.Minimum.Value} º ${data.Temperature.Minimum.Unit} <br>High: ${data.Temperature.Maximum.Value} º ${data.Temperature.Maximum.Unit}`);
+ $('.js-city-results').html(data.LocalizedName);
+ // $('.js-forecast-temp').html();
  // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
- console.log(data);
- console.log(data.Date);
- console.log(data.Temperature.Minimum.Value, data.Temperature.Minimum.Unit);
- console.log(data.Temperature.Maximum);
- console.log(data.Day.Icon);
- console.log(data.Day.IconPhrase);
+ console.log(data.Date, data.Day);
 }
 
 function watchLocationClick() {

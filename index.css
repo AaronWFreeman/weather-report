@@ -32,6 +32,12 @@ header {
   width: 90px;
 }
 
+.js-city-results {
+  height: 60px;
+  width: 120px;
+}
+
+
 .js-forecast-temp {
   height: 60px;
   width: 90px;
