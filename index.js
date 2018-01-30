@@ -57,9 +57,14 @@ function renderForecast(data) {
  let forecast = Object.keys(data).map(property => {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
- $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
+    $('.js-forecast-results').html(`<div class ='icon ${data.Date} ${data.Day.IconNumber}'</div>`);
+ // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
  console.log(data);
- console.log(data.Day.RainProbability);
+ console.log(data.Date);
+ console.log(data.Temperature.Mininum);
+ console.log(data.Temperature.Maximum);
+ console.log(data.Day.Icon);
+ console.log(data.Day.IconPhrase);
 }
 
 function watchLocationClick() {

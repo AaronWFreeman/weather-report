@@ -4,24 +4,34 @@
  <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
-   <title>repl.it</title>
+   <title>Weather Report</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+   <link rel="stylesheet" href="float-grid.css" />
+   <link rel="stylesheet" href="icons.css" />
    <link href="index.css" rel="stylesheet" type="text/css" />
  </head>
  <body>
-   <main role='main'>
-     <h1>
-       WEATHER REPORT
-     </h1>
+  <div class='container'>
+   <header>
+          <h1>WEATHER REPORT</h1>
+   </header>
+
+   <div class='row'>
      <form class="js-form">
        <input type="text" name="city" class="js-query" placeholder="Search by City" required/>
        <button type="Submit" class="js-submit">Search</button>
      </form>
+   </div>
+
      <ul class='js-search-results hidden'>
      </ul>
      <ul class='js-forecast-results'>
      </ul>
-   </main>
+ </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="index.js"></script>
+
  </body>
+
 </html>
