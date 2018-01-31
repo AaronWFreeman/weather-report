@@ -34,7 +34,7 @@ function get_One_Day_DataFromApi(location, callBack) {
    dataType: 'JSON',
    type: 'get',
    success: callBack
- }
+   };
  $.ajax(one_Day_Settings);
 }
 
@@ -52,18 +52,28 @@ function get_One_Day_DataFromApi(location, callBack) {
 //  }
 //  $.ajax(ten_Day_Settings);
 // }
+let cities= [];
+let locationKey;
 
+function getCurrentCity() {
+  return cities.find(function(city) {
+    return city.Key === locationKey;
+  })
+}
+
+function getFullCityInfo() {
+  return getCurrentCity().LocalizedName + ', ' + getCurrentCity().AdministrativeArea.LocalizedName;
+}
 
 function renderForecast(data) {
  let forecast = Object.keys(data).map(property => {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
  let iconNumber = data.Day.Icon;
- let location = data
  $('.js-forecast-results').addClass(`Icon-${iconNumber} Icon`);
  $('.js-forecast-phrase').html(data.Day.IconPhrase);
  $('.js-forecast-temp').html(`Low:  ${data.Temperature.Minimum.Value} º ${data.Temperature.Minimum.Unit} <br>High: ${data.Temperature.Maximum.Value} º ${data.Temperature.Maximum.Unit}`);
- $('.js-city-results').html(data.LocalizedName);
+ $('.js-city-results').html(getFullCityInfo());
  // $('.js-forecast-temp').html();
  // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
  console.log(data.Date, data.Day);
@@ -74,6 +84,8 @@ function watchLocationClick() {
    event.preventDefault();
    $('.js-search-results').addClass('hidden');
    let location = $(this).attr('data-location-key');
+   locationKey = location;
+   console.log(cities);
    get_One_Day_DataFromApi(location, displayForecastData);
  } )
 }
@@ -83,12 +95,11 @@ function renderLocation(locObject) {
 }
 
 function displayLocationData(data) {
+ cities = data;
  $('.js-search-results').html(data.map(renderLocation));
- console.log('data', data);
 }
 
 function displayForecastData(data) {
- // console.log('hey', data);
  return data.DailyForecasts.map(renderForecast);
 }
 
