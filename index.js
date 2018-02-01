@@ -3,6 +3,9 @@ const AW_One_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1
 const AW_Ten_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/10day/';
 const AW_API_KEY = 'RaumfCQRZDqXV5eCgqkPt1TE2YXyqIxT';
 
+let cities= [];
+let locationKey;
+
 function autoComplete(searchTerm, callBack) {
 
  const query = {
@@ -19,9 +22,6 @@ function autoComplete(searchTerm, callBack) {
  }
  $.ajax(autoSettings);
 }
-
-
-
 
 function get_One_Day_DataFromApi(location, callBack) {
  const one_Day_Settings = {
@@ -52,8 +52,6 @@ function get_One_Day_DataFromApi(location, callBack) {
 //  }
 //  $.ajax(ten_Day_Settings);
 // }
-let cities= [];
-let locationKey;
 
 function getCurrentCity() {
   return cities.find(function(city) {
@@ -70,11 +68,18 @@ function renderForecast(data) {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
  let iconNumber = data.Day.Icon;
+ let d = new Date(Date.parse(data.Date));
+ let options = {
+    weekday: "long", year: "numeric", month: "short",
+    day: "numeric", hour: "2-digit", minute: "2-digit"
+ };
+ $('.container-2').removeClass('hidden');
  $('.js-forecast-results').addClass(`Icon-${iconNumber} Icon`);
  $('.js-forecast-phrase').html(data.Day.IconPhrase);
  $('.js-forecast-temp').html(`Low:  ${data.Temperature.Minimum.Value} º ${data.Temperature.Minimum.Unit} <br>High: ${data.Temperature.Maximum.Value} º ${data.Temperature.Maximum.Unit}`);
- $('.js-city-results').html(getFullCityInfo());
- // $('.js-forecast-temp').html();
+ $('.js-city-result').html(getFullCityInfo());
+ $('.js-date-time-result').html(d.toLocaleTimeString("en-us", options).slice(0,-9));
+
  // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
  console.log(data.Date, data.Day);
 }
@@ -85,7 +90,6 @@ function watchLocationClick() {
    $('.js-search-results').addClass('hidden');
    let location = $(this).attr('data-location-key');
    locationKey = location;
-   console.log(cities);
    get_One_Day_DataFromApi(location, displayForecastData);
  } )
 }
@@ -111,8 +115,9 @@ $('.js-form').on('submit', event => {
  let searchTerm = queryTarget.val();
  queryTarget.val("");
  autoComplete(searchTerm, displayLocationData);
+ console.log("wtf");
 })
 }
-
+// $('.container-2').addClass('hidden');
 $(watchSubmit);
 $(watchLocationClick);

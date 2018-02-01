@@ -21,22 +21,43 @@ header {
 .js-form, .row, .js-search-results, .js-forecast-results {
  text-align: center;
 }
-
+.js-forecast-results, .js-forecast-phrase, .js-city-result, .js-date-time-result, .js-forecast-temp {
+  color: white;
+  font-size: 30px;
+}
 .js-forecast-results {
+  position: relative;
   height: 70px;
   width: 70px;
-  margin: 0 20px;
+  float: right;
 }
 .js-forecast-phrase {
   height: 60px;
   width: 90px;
 }
 
-.js-city-results {
-  height: 60px;
-  width: 120px;
+.js-city-result {
+  height: 20%;
+  width: 100%;
+  font-size: 60px;
+  margin-left: 20px;
 }
+.js-date-time-result {
+  position: relative;
+  height: 20%;
+  width: 50%;
+  top: 50px;
+}
+.container-2 {
+  background-color: #240e35;
+  position: relative;
+  margin: 0 auto;
+  top: 66px;
+  height: 450px;
+  width: 800px;
+  mix-blend-mode: darken;
 
+}
 
 .js-forecast-temp {
   height: 60px;
