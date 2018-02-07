@@ -1,70 +1,123 @@
+
 .container {
+
   max-width: 1000px;
   height: 850px;
   margin: 50px auto;
+  border: 2px #240e35 solid;
   background-image: url(https://s.yimg.com/os/mit/media/m/weather/images/fallbacks/lead/cloudy_d-e618500.jpg);
+  /*-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);*/
 
 }
 
 * {
-  border: 1px solid black;
-  padding: 1px;
+
+  border: 1px dotted red;
+  /*padding: 1px;*/
+
+}
+
+ul {
+
+  list-style-type: none;
+
 }
 
 header {
+
   background-color: #eebb44;
   margin-bottom: 10px;
   background-image: url(https://s.yimg.com/os/mit/media/m/weather/images/fallbacks/lead/cloudy_d-e618500.jpg);
   color: #fff;
+  width: 100%;
+
 }
 
 .js-form, .row, .js-search-results, .js-forecast-results {
+
  text-align: center;
+
 }
+
 .js-forecast-results, .js-forecast-phrase, .js-city-result, .js-date-time-result, .js-forecast-temp {
+
   color: white;
   font-size: 30px;
+
 }
-.js-forecast-results {
-  position: relative;
-  height: 70px;
-  width: 70px;
-  float: right;
-}
+
 .js-forecast-phrase {
+
+  position: relative;
+  font-size: 30px;
   height: 60px;
-  width: 90px;
+  width: 40%;
+  top: 20px;
+  /*border: 1px dotted yellow;*/
+  /*float: left;*/
+
 }
 
 .js-city-result {
+
   height: 20%;
   width: 100%;
-  font-size: 60px;
-  margin-left: 20px;
+  font-size: 200%;
+  font-weight: bold;
+  /*float: left;*/
+
 }
+
 .js-date-time-result {
+
   position: relative;
-  height: 20%;
+  height: 12%;
   width: 50%;
-  top: 50px;
+  font-size: 160%;
+  top: 15px;
+  /*border: 1px dotted green;*/
+  /*text-align: center;*/
+  /*float: left;*/
+
 }
+
 .container-2 {
+
   background-color: #240e35;
   position: relative;
   margin: 0 auto;
-  top: 66px;
-  height: 450px;
-  width: 800px;
-  mix-blend-mode: darken;
+  top: 25px;
+  height: 55%;
+  width: 75%;
+  /*mix-blend-mode: darken;*/
 
+}
+
+.js-forecast-results {
+
+  position: relative;
+  height: 100px;
+  width: 100px;
+  top: 25px;
+  /*float: left;*/
+  /*top: 50px;*/
 }
 
 .js-forecast-temp {
-  height: 60px;
-  width: 90px;
+
+  position: relative;
+  height: 15%;
+  width: 47%;
+  top: 40px;
+  /*bottom: 75px;*/
 }
 
 h1 {
+
   font-size: 6vw;
   text-align: center;
   padding: 10px 0;
@@ -72,14 +125,372 @@ h1 {
   font-weight: bold;
   background: #240e35;
   color: #fff;
-  mix-blend-mode: darken;
+  width: 100%;
+  /*mix-blend-mode: darken;*/
+
+}
+
+h2 {
+
+  position: relative;
+  font-size: 20px;
+  width: 40%;
+  float: right;
+  right: 20px;
+  bottom: 282px;
+  font-family: Arial;
+  color: #fff;
+  text-align: center;
+
+}
+
+.container-3 {
+
+  position: relative;
+  float: right;
+  left: 78px;
+  height: 34%;
+  width: 48%;
+  bottom: 210px;
+  padding-left: 12px;
+  padding-top: 6px;
+  /*border: 1px dotted yellow;*/
+
+}
+
+.day1, .day2, .day3, .day4, .day5 {
+
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  padding: 16%;
+  height: 30%;
+
 }
 
 .js-submit {
- height: 22px;
- width: 58px;
+
+ /*height: 3vw;
+ width: 12vw;*/
+ /*padding: 1px;*/
+ font-size: 100%;
+ background: #240e35;
+ color: #fff;
+ border: none;
+
+}
+
+.js-query, .js-submit {
+
+  position: relative;
+  top: 2px;
+
 }
 
 .hidden {
+
   display: none;
+
+}
+
+.js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 15px;
+
+}
+
+@media only screen and (min-width: 320px) {
+
+  .js-city-result {
+
+    height: 20%;
+    width: 100%;
+    font-size: 180%;
+    font-weight: bold;
+    /*float: left;*/
+
+  }
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 90px;
+    height: 34%;
+    width: 48%;
+    bottom: 210px;
+    /*padding-left: px;*/
+    /*padding-top: 6px;*/
+  }
+
+  .day1, .day2, .day3, .day4 {
+
+    right: 3px;
+
+  }
+
+  .day5 {
+
+  left: 15px;
+
+  }
+
+}
+
+@media only screen and (min-width: 360px) {
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 100px;
+    height: 34%;
+    width: 48%;
+    bottom: 210px;
+    padding-left: 12px;
+    padding-top: 6px;
+    /*border: 1px dotted yellow;*/
+
+  }
+  .day1, .day2, .day3, .day4, {
+    left: 6px;
+  }
+
+  .day5 {
+
+  left: 20px;
+
+  }
+
+}
+
+@media only screen and (min-width: 375px) {
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 100px;
+    height: 34%;
+    width: 44%;
+    bottom: 210px;
+    padding-left: 16px;
+    padding-top: 6px;
+    /*border: 1px dotted yellow;*/
+
+  }
+  .day1, .day2, .day3, .day4, {
+    left: 10px;
+  }
+
+  .day5 {
+
+  left: 20px;
+
+  }
+
+}
+
+
+
+@media only screen and (min-width: 412px) {
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 118px;
+    height: 34%;
+    width: 46%;
+    bottom: 210px;
+    padding-left: 16px;
+    padding-top: 6px;
+    /*border: 1px dotted yellow;*/
+
+  }
+  .day1, .day2, .day3, .day4, {
+
+    left: 10px;
+
+  }
+
+  .day5 {
+
+  left: 21px;
+
+  }
+@media only screen and (min-width: 414px) {
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 118px;
+    height: 34%;
+    width: 46%;
+    bottom: 210px;
+    padding-left: 16px;
+    padding-top: 6px;
+    /*border: 1px dotted yellow;*/
+
+  }
+  .day1, .day2, .day3, .day4, {
+
+    left: 10px;
+
+  }
+
+  .day5 {
+
+  left: 22px;
+
+  }
+}
+
+
+@media only screen and (min-width: 650px) {
+
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 25px;
+
+  }
+
+  .js-date-time-result {
+
+    width: 40%;
+
+  }
+
+  .js-city-result {
+
+    font-size: 300%;
+
+  }
+
+  .js-forecast-temp {
+
+    position: relative;
+    height: 25%;
+    width: 30%;
+    bottom: 75px;
+    /*left: px;*/
+    font-size: 20px;
+
+  }
+
+  h2 {
+
+    position: relative;
+    font-size: 20px;
+    width: 35%;
+    height: 10%;
+    float: right;
+    right: 160px;
+    bottom: 336px;
+    font-family: Arial;
+    color: #fff;
+    font-size: 25px;
+    /*text-align: center;*/
+
+  }
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 85px;
+    height: 50%;
+    width: 30%;
+    bottom: 269px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+  }
+
+  .day1, .day2, .day3, .day4, .day5 {
+
+    position: relative;
+    display: inline-block;
+    width: 15%;
+    padding: 15%;
+    height: 32%;
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  h2 {
+
+    position: relative;
+    font-size: 20px;
+    width: 35%;
+    height: 15%;
+    float: right;
+    right: 130px;
+    bottom: 336px;
+    font-family: Arial;
+    color: #fff;
+    font-size: 25px;
+
+  }
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 55px;
+    height: 50%;
+    width: 30%;
+    bottom: 240px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+  }
+
+  .day4, .day5 {
+    left: 30px;
+
+  }
+
+}
+@media only screen and (min-width: 1024px) {
+
+  h2 {
+
+    position: relative;
+    font-size: 20px;
+    width: 35%;
+    height: 10%;
+    float: right;
+    right: 165px;
+    bottom: 336px;
+    font-family: Arial;
+    color: #fff;
+    font-size: 28px;
+
+  }
+
+  .container-3 {
+
+    position: relative;
+    float: right;
+    left: 80px;
+    height: 50%;
+    width: 30%;
+    bottom: 260px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+  }
+
+  .day4, .day5 {
+
+    left: 40px;
+
+  }
+
 }

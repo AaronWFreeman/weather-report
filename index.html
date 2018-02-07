@@ -7,6 +7,8 @@
    <title>Weather Report</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+   <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
    <link rel="stylesheet" href="float-grid.css" />
    <link rel="stylesheet" href="icons.css" />
    <link href="index.css" rel="stylesheet" type="text/css" />
@@ -25,16 +27,28 @@
    </div>
      <ul class='js-search-results hidden'>
      </ul>
-     <div class="container-2 hidden">
+     <div class="container-2 hidden animated bounceIn">
        <div class='js-city-result'>
        </div>
        <div class='js-date-time-result'>
        </div>
-       <div class='js-forecast-results'>
-       </div>
        <div class='js-forecast-phrase'>
        </div>
+       <div class='js-forecast-results'>
+       </div>
        <div class='js-forecast-temp'>
+       </div>
+       <h2>Five Day Forecast</h2>
+       <div class='container-3 hidden'>
+         <div class="day1 day"></div>
+         <div class="day2 day"></div>
+         <div class="day3 day"></div>
+         <div class="day4 day"></div>
+         <div class="day5 day"></div>
+         <!-- <div class="daySIX"></div>
+         <div class="daySEVEN"></div>
+         <div class="dayEIGHT"></div>
+         <div class="dayNINE"></div> -->
        </div>
      </div>
  </div>

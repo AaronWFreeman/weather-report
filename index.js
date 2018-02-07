@@ -1,9 +1,10 @@
 const AW_locations_autoComplete_URL = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
 const AW_One_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/';
-const AW_Ten_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/10day/';
+const AW_Five_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
 const AW_API_KEY = 'RaumfCQRZDqXV5eCgqkPt1TE2YXyqIxT';
 
 let cities= [];
+let days= [];
 let locationKey;
 
 function autoComplete(searchTerm, callBack) {
@@ -23,24 +24,9 @@ function autoComplete(searchTerm, callBack) {
  $.ajax(autoSettings);
 }
 
-function get_One_Day_DataFromApi(location, callBack) {
- const one_Day_Settings = {
-   url: AW_One_Day_Forecast_URL + location,
-   data: {
-     details: true,
-     apikey: AW_API_KEY,
-     language: 'en-us'
-   },
-   dataType: 'JSON',
-   type: 'get',
-   success: callBack
-   };
- $.ajax(one_Day_Settings);
-}
-
-// function get_Ten_Day_DataFromApi(location, callBack) {
-//  const ten_Day_Settings = {
-//    url: AW_Ten_Day_Forecast_URL + location,
+// function get_One_Day_DataFromApi(location, callBack) {
+//  const one_Day_Settings = {
+//    url: AW_One_Day_Forecast_URL + location,
 //    data: {
 //      details: true,
 //      apikey: AW_API_KEY,
@@ -49,9 +35,25 @@ function get_One_Day_DataFromApi(location, callBack) {
 //    dataType: 'JSON',
 //    type: 'get',
 //    success: callBack
-//  }
-//  $.ajax(ten_Day_Settings);
+//    };
+//  $.ajax(one_Day_Settings);
 // }
+
+function get_Five_Day_DataFromApi(location, callBack) {
+ const five_Day_Settings = {
+   url: AW_Five_Day_Forecast_URL + location,
+   data: {
+     details: true,
+     apikey: AW_API_KEY,
+     language: 'en-us'
+   },
+   dataType: 'JSON',
+   type: 'get',
+   success: callBack
+ }
+ $.ajax(five_Day_Settings);
+ // console.log(five_Day_Settings);
+}
 
 function getCurrentCity() {
   return cities.find(function(city) {
@@ -63,7 +65,35 @@ function getFullCityInfo() {
   return getCurrentCity().LocalizedName + ', ' + getCurrentCity().AdministrativeArea.LocalizedName;
 }
 
-function renderForecast(data) {
+function getForecastTarget(index) {
+  return $(`.day${index + 1}`);
+}
+
+// function watchDayClick() {
+//   $('.day').on('click', function() {
+//     let index = parseInt($(this).attr('class'));
+//     showForecastDetails(index-1);
+//   } )
+// }
+
+function showForecastDetails(dayIndex) {
+  const data = days[dayIndex];
+  console.log(dayIndex, data);
+  let d = new Date(Date.parse(data.Date));
+  let options = {
+     weekday: "long", year: "numeric", month: "short",
+     day: "numeric", hour: "2-digit", minute: "2-digit"
+  };
+  let localDate = d.toLocaleTimeString("en-us", options).slice(0,-9)
+  $('.container-2, .container-3').removeClass('hidden');
+  $('.js-forecast-results').addClass(`Icon-${data.Day.Icon} Icon`);
+  $('.js-forecast-phrase').html(data.Day.IconPhrase);
+  $('.js-forecast-temp').html(`Low:  ${data.Temperature.Minimum.Value} º ${data.Temperature.Minimum.Unit} <br>High: ${data.Temperature.Maximum.Value} º ${data.Temperature.Maximum.Unit}`);
+  $('.js-city-result').html(getFullCityInfo());
+  $('.js-date-time-result').html(localDate);
+}
+
+function renderForecast(data, index, days) {
  let forecast = Object.keys(data).map(property => {
    return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
  });
@@ -73,15 +103,14 @@ function renderForecast(data) {
     weekday: "long", year: "numeric", month: "short",
     day: "numeric", hour: "2-digit", minute: "2-digit"
  };
- $('.container-2').removeClass('hidden');
- $('.js-forecast-results').addClass(`Icon-${iconNumber} Icon`);
- $('.js-forecast-phrase').html(data.Day.IconPhrase);
- $('.js-forecast-temp').html(`Low:  ${data.Temperature.Minimum.Value} º ${data.Temperature.Minimum.Unit} <br>High: ${data.Temperature.Maximum.Value} º ${data.Temperature.Maximum.Unit}`);
- $('.js-city-result').html(getFullCityInfo());
- $('.js-date-time-result').html(d.toLocaleTimeString("en-us", options).slice(0,-9));
+ let target = getForecastTarget(index);
+ let localDate = d.toLocaleTimeString("en-us", options).slice(0,-9);
+ target.html(localDate).slice(0, 2).addClass(`Icon-${iconNumber} Icon`);
+ console.log(data);
 
  // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
- console.log(data.Date, data.Day);
+ // $('.container-3').removeClass('hidden');
+ // console.log(data.Date, data.Day);
 }
 
 function watchLocationClick() {
@@ -90,7 +119,8 @@ function watchLocationClick() {
    $('.js-search-results').addClass('hidden');
    let location = $(this).attr('data-location-key');
    locationKey = location;
-   get_One_Day_DataFromApi(location, displayForecastData);
+   // get_One_Day_DataFromApi(location, displayForecastData);
+   get_Five_Day_DataFromApi(location, displayForecastData);
  } )
 }
 
@@ -104,20 +134,34 @@ function displayLocationData(data) {
 }
 
 function displayForecastData(data) {
- return data.DailyForecasts.map(renderForecast);
+ days = data.DailyForecasts;
+ data.DailyForecasts.map(renderForecast);
+ console.log(days);
+ showForecastDetails(0);
+
 }
 
 function watchSubmit() {
-$('.js-form').on('submit', event => {
- event.preventDefault();
- $('.js-search-results').removeClass('hidden');
- let queryTarget = $(event.currentTarget).find('.js-query');
- let searchTerm = queryTarget.val();
- queryTarget.val("");
- autoComplete(searchTerm, displayLocationData);
- console.log("wtf");
-})
+  $('.js-form').on('submit', event => {
+   event.preventDefault();
+   $('.js-search-results').removeClass('hidden');
+   let queryTarget = $(event.currentTarget).find('.js-query');
+   let searchTerm = queryTarget.val();
+   queryTarget.val("");
+   autoComplete(searchTerm, displayLocationData);
+   // console.log("wtf");
+  })
 }
-// $('.container-2').addClass('hidden');
+
+function watchDayClick() {
+  $('.day1, .day2, .day3, .day4, .day5').on('click', event => {
+   console.log("wtf");
+   let queryTarget = $(event.currentTarget).text().slice(0, 3);
+   console.log(queryTarget);
+  })
+}
+
+$(watchDayClick);
+$('.container-2, .container-3').removeClass('hidden');
 $(watchSubmit);
 $(watchLocationClick);
