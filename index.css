@@ -16,7 +16,7 @@
 
 * {
 
-  border: 1px dotted red;
+  /*border: 1px dotted red;*/
   /*padding: 1px;*/
 
 }
@@ -42,6 +42,9 @@ header {
  text-align: center;
 
 }
+.js-form {
+  bottom: 40px;
+}
 
 .js-forecast-results, .js-forecast-phrase, .js-city-result, .js-date-time-result, .js-forecast-temp {
 
@@ -57,6 +60,7 @@ header {
   height: 60px;
   width: 40%;
   top: 20px;
+  left: 5px;
   /*border: 1px dotted yellow;*/
   /*float: left;*/
 
@@ -65,10 +69,10 @@ header {
 .js-city-result {
 
   height: 20%;
-  width: 100%;
-  font-size: 200%;
+  width: 95%;
+  font-size: 210%;
   font-weight: bold;
-  /*float: left;*/
+
 
 }
 
@@ -79,10 +83,33 @@ header {
   width: 50%;
   font-size: 160%;
   top: 15px;
+  left: 5px;
   /*border: 1px dotted green;*/
   /*text-align: center;*/
   /*float: left;*/
 
+}
+
+.js-forecast-results {
+
+  position: relative;
+  height: 100px;
+  width: 100px;
+  top: 25px;
+  left: 5px;
+  /*float: left;*/
+  /*top: 50px;*/
+}
+
+
+.js-forecast-temp {
+
+  position: relative;
+  height: 15%;
+  width: 47%;
+  top: 40px;
+  left: 5px;
+  /*bottom: 75px;*/
 }
 
 .container-2 {
@@ -95,25 +122,6 @@ header {
   width: 75%;
   /*mix-blend-mode: darken;*/
 
-}
-
-.js-forecast-results {
-
-  position: relative;
-  height: 100px;
-  width: 100px;
-  top: 25px;
-  /*float: left;*/
-  /*top: 50px;*/
-}
-
-.js-forecast-temp {
-
-  position: relative;
-  height: 15%;
-  width: 47%;
-  top: 40px;
-  /*bottom: 75px;*/
 }
 
 h1 {
@@ -144,27 +152,33 @@ h2 {
 
 }
 
+
 .container-3 {
 
   position: relative;
   float: right;
   left: 78px;
-  height: 34%;
+  height: 28%;
   width: 48%;
   bottom: 210px;
   padding-left: 12px;
   padding-top: 6px;
+  background-color: black solid;
   /*border: 1px dotted yellow;*/
 
 }
 
-.day1, .day2, .day3, .day4, .day5 {
+.day {
 
   position: relative;
   display: inline-block;
-  width: 30%;
+  width: 32%;
   padding: 16%;
   height: 30%;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  float: left;
 
 }
 
@@ -348,7 +362,7 @@ h2 {
 }
 
 
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 550px) {
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
 
@@ -386,7 +400,7 @@ h2 {
     width: 35%;
     height: 10%;
     float: right;
-    right: 160px;
+    right: 140px;
     bottom: 336px;
     font-family: Arial;
     color: #fff;
@@ -465,7 +479,7 @@ h2 {
     width: 35%;
     height: 10%;
     float: right;
-    right: 165px;
+    right: 160px;
     bottom: 336px;
     font-family: Arial;
     color: #fff;

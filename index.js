@@ -69,12 +69,13 @@ function getForecastTarget(index) {
   return $(`.day${index + 1}`);
 }
 
-// function watchDayClick() {
-//   $('.day').on('click', function() {
-//     let index = parseInt($(this).attr('class'));
-//     showForecastDetails(index-1);
-//   } )
-// }
+function watchDayClick() {
+  $('.day').on('click', function() {
+    let index = parseInt($(this).index(), 10);
+    console.log(index, $(this).attr('class'));
+    showForecastDetails(index);
+  } )
+}
 
 function showForecastDetails(dayIndex) {
   const data = days[dayIndex];
@@ -86,11 +87,12 @@ function showForecastDetails(dayIndex) {
   };
   let localDate = d.toLocaleTimeString("en-us", options).slice(0,-9)
   $('.container-2, .container-3').removeClass('hidden');
-  $('.js-forecast-results').addClass(`Icon-${data.Day.Icon} Icon`);
+  $('.js-forecast-results').attr('class', `js-forecast-results Icon-${data.Day.Icon} Icon`);
   $('.js-forecast-phrase').html(data.Day.IconPhrase);
   $('.js-forecast-temp').html(`Low:  ${data.Temperature.Minimum.Value} º ${data.Temperature.Minimum.Unit} <br>High: ${data.Temperature.Maximum.Value} º ${data.Temperature.Maximum.Unit}`);
   $('.js-city-result').html(getFullCityInfo());
   $('.js-date-time-result').html(localDate);
+
 }
 
 function renderForecast(data, index, days) {
@@ -104,9 +106,9 @@ function renderForecast(data, index, days) {
     day: "numeric", hour: "2-digit", minute: "2-digit"
  };
  let target = getForecastTarget(index);
- let localDate = d.toLocaleTimeString("en-us", options).slice(0,-9);
- target.html(localDate).slice(0, 2).addClass(`Icon-${iconNumber} Icon`);
- console.log(data);
+ let localDate = d.toLocaleTimeString("en-us", options).slice(0, 3);
+ target.html(localDate).addClass(`Icon-${iconNumber} Icon`);
+ // console.log(data);
 
  // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
  // $('.container-3').removeClass('hidden');
@@ -149,19 +151,13 @@ function watchSubmit() {
    let searchTerm = queryTarget.val();
    queryTarget.val("");
    autoComplete(searchTerm, displayLocationData);
+   $('.container-2, .container-3').addClass('hidden');
    // console.log("wtf");
   })
 }
 
-function watchDayClick() {
-  $('.day1, .day2, .day3, .day4, .day5').on('click', event => {
-   console.log("wtf");
-   let queryTarget = $(event.currentTarget).text().slice(0, 3);
-   console.log(queryTarget);
-  })
-}
 
 $(watchDayClick);
-$('.container-2, .container-3').removeClass('hidden');
+$('.container-2, .container-3').addClass('hidden');
 $(watchSubmit);
 $(watchLocationClick);
