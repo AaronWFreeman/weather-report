@@ -119,6 +119,7 @@ function watchLocationClick() {
  $('.js-search-results').on('click', 'a' , function(event) {
    event.preventDefault();
    $('.js-search-results').addClass('hidden');
+   $('.searchResultsContainer').addClass('hidden');
    let location = $(this).attr('data-location-key');
    locationKey = location;
    // get_One_Day_DataFromApi(location, displayForecastData);
@@ -147,6 +148,7 @@ function watchSubmit() {
   $('.js-form').on('submit', event => {
    event.preventDefault();
    $('.js-search-results').removeClass('hidden');
+   $('.searchResultsContainer').removeClass('hidden');
    let queryTarget = $(event.currentTarget).find('.js-query');
    let searchTerm = queryTarget.val();
    queryTarget.val("");
