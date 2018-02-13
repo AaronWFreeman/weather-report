@@ -1,5 +1,4 @@
 const AW_locations_autoComplete_URL = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
-const AW_One_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/';
 const AW_Five_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
 const AW_API_KEY = 'RaumfCQRZDqXV5eCgqkPt1TE2YXyqIxT';
 
@@ -24,21 +23,6 @@ function autoComplete(searchTerm, callBack) {
  $.ajax(autoSettings);
 }
 
-// function get_One_Day_DataFromApi(location, callBack) {
-//  const one_Day_Settings = {
-//    url: AW_One_Day_Forecast_URL + location,
-//    data: {
-//      details: true,
-//      apikey: AW_API_KEY,
-//      language: 'en-us'
-//    },
-//    dataType: 'JSON',
-//    type: 'get',
-//    success: callBack
-//    };
-//  $.ajax(one_Day_Settings);
-// }
-
 function get_Five_Day_DataFromApi(location, callBack) {
  const five_Day_Settings = {
    url: AW_Five_Day_Forecast_URL + location,
@@ -52,7 +36,6 @@ function get_Five_Day_DataFromApi(location, callBack) {
    success: callBack
  }
  $.ajax(five_Day_Settings);
- // console.log(five_Day_Settings);
 }
 
 function getCurrentCity() {
@@ -108,11 +91,6 @@ function renderForecast(data, index, days) {
  let target = getForecastTarget(index);
  let localDate = d.toLocaleTimeString("en-us", options).slice(0, 3);
  target.html(localDate).addClass(`Icon-${iconNumber} Icon`);
- // console.log(data);
-
- // $('.js-forecast-results').html('<dl>' + forecast.join('\n') + '</dl>');
- // $('.container-3').removeClass('hidden');
- // console.log(data.Date, data.Day);
 }
 
 function watchLocationClick() {
@@ -122,7 +100,6 @@ function watchLocationClick() {
    $('.searchResultsContainer').addClass('hidden');
    let location = $(this).attr('data-location-key');
    locationKey = location;
-   // get_One_Day_DataFromApi(location, displayForecastData);
    get_Five_Day_DataFromApi(location, displayForecastData);
  } )
 }
@@ -154,7 +131,6 @@ function watchSubmit() {
    queryTarget.val("");
    autoComplete(searchTerm, displayLocationData);
    $('.container-2, .container-3').addClass('hidden');
-   // console.log("wtf");
   })
 }
 

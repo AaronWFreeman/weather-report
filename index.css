@@ -1,34 +1,22 @@
 
+body {
+
+  background-color: #240e35;
+
+}
+
 .container {
 
   max-width: 1000px;
-  height: 850px;
-  margin: 50px auto;
-  border: 2px #240e35 solid;
-  background-image: url(https://s.yimg.com/os/mit/media/m/weather/images/fallbacks/lead/cloudy_d-e618500.jpg);
+  height: 950px;
+  margin: 0 auto;
+  /*border: 2px #240e35 solid;*/
+  background-image: url(https://i.pinimg.com/originals/ed/e9/76/ede9763d00b629e9a8472c46d75b0850.jpg);
   /*-webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);*/
-
-}
-
-* {
-
-  /*border: 1px dotted red;*/
-  /*padding: 1px;*/
-
-}
-
-
-header {
-
-  background-color: #eebb44;
-  margin-bottom: 10px;
-  background-image: url(https://s.yimg.com/os/mit/media/m/weather/images/fallbacks/lead/cloudy_d-e618500.jpg);
-  color: #fff;
-  width: 100%;
 
 }
 
@@ -63,14 +51,36 @@ li a {
  text-align: center;
 
 }
-.js-form {
-  bottom: 40px;
-}
+
 
 .js-forecast-results, .js-forecast-phrase, .js-city-result, .js-date-time-result, .js-forecast-temp {
 
   color: white;
   font-size: 30px;
+
+}
+
+
+.js-city-result {
+
+  position: relative;
+  height: 20%;
+  width: 95%;
+  font-size: 215%;
+  font-weight: bold;
+  text-align: center;
+  top: 10px;
+
+}
+
+.js-date-time-result {
+
+  position: relative;
+  height: 12%;
+  width: 50%;
+  font-size: 160%;
+  top: 15px;
+  left: 12px;
 
 }
 
@@ -83,30 +93,6 @@ li a {
   top: 20px;
   left: 12px;
   /*border: 1px dotted yellow;*/
-  /*float: left;*/
-
-}
-
-.js-city-result {
-
-  height: 20%;
-  width: 95%;
-  font-size: 210%;
-  font-weight: bold;
-  text-align: center;
-
-}
-
-.js-date-time-result {
-
-  position: relative;
-  height: 12%;
-  width: 50%;
-  font-size: 160%;
-  top: 15px;
-  left: 12px;
-  /*border: 1px dotted green;*/
-  /*text-align: center;*/
   /*float: left;*/
 
 }
@@ -152,7 +138,7 @@ h1 {
   padding: 10px 0;
   font-family: Arial;
   font-weight: bold;
-  background: #240e35;
+  background-color: #240e35;
   color: #fff;
   width: 100%;
   /*mix-blend-mode: darken;*/
@@ -204,8 +190,20 @@ h2 {
 }
 
 .day:hover {
+  cursor: pointer;
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
+}
 
-  opacity: .4;
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+
+  to {
+    -webkit-mask-position: -50%;
+  }
 
 }
 
@@ -244,9 +242,17 @@ li:hover {
 
 }
 
+.js-submit:hover {
+
+  cursor: pointer;
+  
+
+}
+
 .hidden {
 
   display: none;
+  opacity: 0;
 
 }
 
@@ -285,12 +291,20 @@ li:hover {
     position: relative;
     text-align: center;
     list-style-type: none;
-    top: 30px;
-    right: 15px;
-    font-size: 90%;
+    /*top: 30px;
+    right: 15px;*/
+    /*font-size: 85%;*/
+    /*border: 1px dotted yellow;*/
 
   }
 
+  li {
+
+    font-size: 15.4px;
+    position: relative;
+    bottom: 25px;
+
+  }
 
   .day1, .day2, .day3, .day4 {
 
@@ -300,7 +314,7 @@ li:hover {
 
   .day5 {
 
-  left: 15px;
+    left: 15px;
 
   }
 
@@ -321,6 +335,42 @@ li:hover {
     /*border: 1px dotted yellow;*/
 
   }
+
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 125px;
+    font-size: 25px;
+
+  }
+
+  .js-query {
+
+    width: 150px;
+    font-size: 20px;
+
+  }
+
+  li {
+
+    font-size: 16px;
+    position: relative;
+    bottom: 25px;
+
+  }
+
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 25px;
+
+  }
+
+  .js-forecast-temp {
+
+    width: 55%;
+
+  }
+
   .day1, .day2, .day3, .day4, {
     left: 6px;
   }
@@ -348,6 +398,48 @@ li:hover {
     /*border: 1px dotted yellow;*/
 
   }
+
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 30%;
+    font-size: 25px;
+
+  }
+
+  .js-query {
+
+    width: 160px;
+    font-size: 23px;
+
+  }
+
+  li {
+
+    font-size: 16.5px;
+    position: relative;
+    bottom: 25px;
+
+  }
+
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase {
+
+    font-size: 25px;
+
+  }
+
+  .js-date-time-result {
+
+    font-size: 20px;
+
+  }
+
+  .js-forecast-temp {
+
+    width: 55%;
+
+  }
+
   .day1, .day2, .day3, .day4, {
     left: 10px;
   }
@@ -378,6 +470,27 @@ li:hover {
 
   }
 
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 25px;
+
+  }
+
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 30%;
+    font-size: 25px;
+
+  }
+
+  .js-query {
+
+    width: 170px;
+    font-size: 24px;
+
+  }
+
   ul {
 
     position: relative;
@@ -389,6 +502,12 @@ li:hover {
 
   }
 
+  li {
+
+    position: relative;
+    bottom: 25px;
+
+  }
 
   .day1, .day2, .day3, .day4, {
 
@@ -405,6 +524,21 @@ li:hover {
 
 @media only screen and (min-width: 414px) {
 
+
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 40%;
+    font-size: 15px;
+
+  }
+
+  .js-query {
+
+    width: 175px;
+
+  }
+
   .container-3 {
 
     position: relative;
@@ -418,6 +552,28 @@ li:hover {
     /*border: 1px dotted yellow;*/
 
   }
+
+  h2 {
+
+    position: relative;
+    left: 20px;
+
+  }
+
+  li {
+
+    font-size: 20px;
+    position: relative;
+    bottom: 40px;
+
+  }
+
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 25px;
+
+  }
+
   .day1, .day2, .day3, .day4, {
 
     left: 10px;
@@ -426,7 +582,7 @@ li:hover {
 
   .day5 {
 
-  left: 22px;
+    left: 22px;
 
   }
 
@@ -480,6 +636,14 @@ li:hover {
 
   }
 
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 30%;
+    font-size: 25px;
+
+  }
+
   ul {
 
     position: relative;
@@ -487,10 +651,17 @@ li:hover {
     list-style-type: none;
     top: 30px;
     right: 15px;
-    font-size: 130%;
+    /*font-size: 130%;*/
 
   }
 
+  li {
+
+    font-size: 20px;
+    position: relative;
+    bottom: 10px;
+
+  }
 
   .container-3 {
 
@@ -518,6 +689,14 @@ li:hover {
 
 @media only screen and (min-width: 768px) {
 
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 30%;
+    font-size: 25px;
+
+  }
+
   ul {
 
     position: relative;
@@ -525,10 +704,17 @@ li:hover {
     list-style-type: none;
     top: 30px;
     right: 15px;
-    font-size: 140%;
+    /*font-size: 140%;*/
 
   }
 
+  li {
+
+    font-size: 25px;
+    position: relative;
+    bottom: 25px;
+
+  }
 
   h2 {
 
@@ -537,8 +723,8 @@ li:hover {
     width: 35%;
     height: 15%;
     float: right;
-    right: 130px;
-    bottom: 336px;
+    right: 30px;
+    bottom: 342px;
     font-family: Arial;
     color: #fff;
     font-size: 25px;
@@ -549,13 +735,26 @@ li:hover {
 
     position: relative;
     float: right;
-    left: 55px;
+    left: 150px;
     height: 50%;
     width: 30%;
     bottom: 240px;
     padding-left: 4px;
     padding-top: 4px;
     padding-bottom: 4px;
+
+  }
+
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 30px;
+
+  }
+
+  .js-date-time-result {
+
+    position: relative;
+    width: 58%;
 
   }
 
@@ -567,14 +766,68 @@ li:hover {
 }
 @media only screen and (min-width: 1024px) {
 
+  .container {
+
+    height: 1150px;
+
+  }
+
+  header {
+
+    position: relative;
+    top: 180px;
+    width: 100%;
+
+  }
+
+  .js-query, .js-submit {
+
+    height: 50px;
+    width: 30%;
+    font-size: 25px;
+
+  }
+
+  .js-query {
+
+    text-indent: 10px;
+
+  }
+
+
+  .searchResultsContainer {
+
+    background-color: #240e35;
+    position: relative;
+    top: 225px;
+    height: 50%;
+    width: 50%;
+
+    }
+
   ul {
 
     position: relative;
     text-align: center;
     list-style-type: none;
-    top: 30px;
-    right: 15px;
-    font-size: 160%;
+    /*top: 5px;
+    right: 5px;*/
+    /*font-size: 160%;  */
+
+  }
+
+  li {
+
+    font-size: 30px;
+    position: relative;
+    bottom: 15px;
+
+  }
+
+  .container-2 {
+
+    position: relative;
+    top: 225px;
 
   }
 
@@ -586,8 +839,8 @@ li:hover {
     width: 40%;
     height: 10%;
     float: right;
-    right: 160px;
-    bottom: 336px;
+    right: 35px;
+    bottom: 384px;
     font-family: Arial;
     color: #fff;
     font-size: 34px;
@@ -598,13 +851,31 @@ li:hover {
 
     position: relative;
     float: right;
-    left: 80px;
+    left: 210px;
     height: 50%;
     width: 30%;
-    bottom: 260px;
+    bottom: 290px;
     padding-left: 4px;
     padding-top: 4px;
     padding-bottom: 4px;
+
+  }
+
+  .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
+
+    font-size: 30px;
+
+  }
+
+  .js-date-time-result {
+
+    width: 54%;
+
+  }
+
+  .js-forecast-phrase {
+
+    width: 50%;
 
   }
 
