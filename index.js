@@ -1,5 +1,5 @@
-const AW_locations_autoComplete_URL = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
-const AW_Five_Day_Forecast_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
+const AW_locations_autoComplete_URL = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete';
+const AW_Five_Day_Forecast_URL = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
 const AW_API_KEY = 'RaumfCQRZDqXV5eCgqkPt1TE2YXyqIxT';
 
 let cities= [];
