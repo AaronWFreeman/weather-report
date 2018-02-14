@@ -8,7 +8,7 @@ body {
 .container {
 
   max-width: 1000px;
-  height: 950px;
+  height: 980px;
   margin: 0 auto;
   /*border: 2px #240e35 solid;*/
   background-image: url(https://i.pinimg.com/originals/ed/e9/76/ede9763d00b629e9a8472c46d75b0850.jpg);
@@ -245,7 +245,7 @@ li:hover {
 .js-submit:hover {
 
   cursor: pointer;
-  
+
 
 }
 
