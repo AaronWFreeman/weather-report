@@ -3,7 +3,15 @@ body {
   height: 1100px;
 }
 
-.container {
+.errorMsg {
+
+  font-size: 35px;
+  font-weight: bold;
+  color: red;
+
+}
+
+.titlePage {
   max-width: 1000px;
   height: 980px;
   margin: 0 auto;
@@ -89,7 +97,7 @@ li a {
   left: 12px;
 }
 
-.container-2 {
+.forecastPage {
   background-color: #240e35;
   position: relative;
   margin: 0 auto;
@@ -122,7 +130,7 @@ h2 {
 }
 
 
-.container-3 {
+.fiveDayForecast {
   position: relative;
   float: right;
   left: 78px;
@@ -213,7 +221,7 @@ li:hover {
     font-weight: bold;
   }
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 90px;
@@ -246,7 +254,7 @@ li:hover {
 
 @media only screen and (min-width: 360px) {
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 100px;
@@ -294,7 +302,7 @@ li:hover {
 
 @media only screen and (min-width: 375px) {
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 100px;
@@ -348,7 +356,7 @@ li:hover {
 
 @media only screen and (min-width: 412px) {
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 118px;
@@ -410,7 +418,7 @@ li:hover {
     width: 175px;
   }
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 118px;
@@ -501,7 +509,7 @@ li:hover {
     bottom: 10px;
   }
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 85px;
@@ -556,7 +564,7 @@ li:hover {
     font-size: 25px;
   }
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 150px;
@@ -585,7 +593,7 @@ li:hover {
 
 @media only screen and (min-width: 1024px) {
 
-  .container {
+  .titlePage {
     position: relative;
     height: 1250px;
     bottom: 75px;
@@ -628,8 +636,7 @@ li:hover {
     position: relative;
     bottom: 15px;
   }
-
-  .container-2 {
+.forecastPage {
     position: relative;
     top: 225px;
   }
@@ -648,7 +655,7 @@ li:hover {
     font-size: 34px;
   }
 
-  .container-3 {
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 210px;

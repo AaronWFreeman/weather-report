@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
  <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
@@ -14,19 +14,19 @@
    <link href="index.css" rel="stylesheet" type="text/css" />
  </head>
  <body>
-  <div class='container'>
-     <header>
+  <main role='main' class="titlePage"  aria-live="assertive">
+     <header role='banner'>
        <h1>WEATHER REPORT</h1>
        <form class="js-form">
          <input type="text" name="city" class="js-query" placeholder="City Name" required/>
          <button type="Submit" class="js-submit">Search</button>
        </form>
-    </header>
+     </header>
     <div class='searchResultsContainer hidden'>
        <ul class='js-search-results hidden'>
        </ul>
     </div>
-    <div class="container-2 hidden animated bounceIn">
+    <div class="forecastPage hidden animated bounceIn">
       <div class='js-city-result'>
       </div>
       <div class='js-date-time-result'>
@@ -38,7 +38,7 @@
       <div class='js-forecast-temp'>
       </div>
       <h2>Five Day Forecast</h2>
-      <div class='container-3 hidden'>
+      <div class='fiveDayForecast hidden'>
         <div class="day1 day"></div>
         <div class="day2 day"></div>
         <div class="day3 day"></div>
@@ -46,7 +46,7 @@
         <div class="day5 day"></div>
       </div>
     </div>
-  </div>
+  </main>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="index.js"></script>
  </body>
