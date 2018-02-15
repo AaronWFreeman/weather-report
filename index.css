@@ -1,38 +1,33 @@
-
 body {
-
   background-color: #240e35;
+  height: 1100px;
+}
+
+.errorMsg {
+
+  font-size: 35px;
+  font-weight: bold;
+  color: red;
 
 }
 
-.container {
-
+.titlePage {
   max-width: 1000px;
   height: 980px;
   margin: 0 auto;
-  /*border: 2px #240e35 solid;*/
   background-image: url(https://i.pinimg.com/originals/ed/e9/76/ede9763d00b629e9a8472c46d75b0850.jpg);
-  /*-webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);*/
-
 }
 
 .searchResultsContainer {
-
   background-color: #240e35;
   position: relative;
   margin: 0 auto;
   top: 25px;
   height: 55%;
   width: 50%;
-
 }
 
 ul {
-
   position: relative;
   text-align: center;
   list-style-type: none;
@@ -47,22 +42,17 @@ li a {
 
 
 .js-form, .row, .js-search-results, .js-forecast-results {
-
  text-align: center;
-
 }
 
 
 .js-forecast-results, .js-forecast-phrase, .js-city-result, .js-date-time-result, .js-forecast-temp {
-
   color: white;
   font-size: 30px;
-
 }
 
 
 .js-city-result {
-
   position: relative;
   height: 20%;
   width: 95%;
@@ -70,69 +60,53 @@ li a {
   font-weight: bold;
   text-align: center;
   top: 10px;
-
 }
 
 .js-date-time-result {
-
   position: relative;
   height: 12%;
   width: 50%;
   font-size: 160%;
   top: 15px;
   left: 12px;
-
 }
 
 .js-forecast-phrase {
-
   position: relative;
   font-size: 30px;
   height: 60px;
   width: 40%;
   top: 20px;
   left: 12px;
-  /*border: 1px dotted yellow;*/
-  /*float: left;*/
-
 }
 
 .js-forecast-results {
-
   position: relative;
   height: 100px;
   width: 100px;
   top: 25px;
   left: 15px;
-  /*float: left;*/
-  /*top: 50px;*/
 }
 
 
 .js-forecast-temp {
-
   position: relative;
   height: 15%;
   width: 47%;
   top: 40px;
   left: 12px;
-  /*bottom: 75px;*/
 }
 
-.container-2 {
-
+.forecastPage {
   background-color: #240e35;
   position: relative;
   margin: 0 auto;
   top: 25px;
   height: 55%;
   width: 75%;
-  /*mix-blend-mode: darken;*/
-
 }
 
 h1 {
-
   font-size: 6vw;
   text-align: center;
   padding: 10px 0;
@@ -141,12 +115,9 @@ h1 {
   background-color: #240e35;
   color: #fff;
   width: 100%;
-  /*mix-blend-mode: darken;*/
-
 }
 
 h2 {
-
   position: relative;
   font-size: 20px;
   width: 40%;
@@ -156,12 +127,10 @@ h2 {
   font-family: Arial;
   color: #fff;
   text-align: center;
-
 }
 
 
-.container-3 {
-
+.fiveDayForecast {
   position: relative;
   float: right;
   left: 78px;
@@ -171,12 +140,9 @@ h2 {
   padding-left: 12px;
   padding-top: 6px;
   background-color: black solid;
-  /*border: 1px dotted yellow;*/
-
 }
 
 .day {
-
   position: relative;
   display: inline-block;
   width: 36%;
@@ -186,7 +152,6 @@ h2 {
   text-align: center;
   font-size: 12px;
   float: left;
-
 }
 
 .day:hover {
@@ -204,7 +169,6 @@ h2 {
   to {
     -webkit-mask-position: -50%;
   }
-
 }
 
 li:hover {
@@ -224,106 +188,73 @@ li:hover {
 }
 
 .js-submit {
-
- /*height: 3vw;
- width: 12vw;*/
- /*padding: 1px;*/
  font-size: 100%;
  background: #240e35;
  color: #fff;
  border: none;
-
 }
 
 .js-query, .js-submit {
-
   position: relative;
   top: 2px;
-
 }
 
 .js-submit:hover {
-
   cursor: pointer;
-
-
 }
 
 .hidden {
-
   display: none;
   opacity: 0;
-
 }
 
 .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 15px;
-
 }
 
 @media only screen and (min-width: 320px) {
 
   .js-city-result {
-
     height: 20%;
     width: 100%;
     font-size: 180%;
     font-weight: bold;
-    /*float: left;*/
-
   }
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 90px;
     height: 34%;
     width: 48%;
     bottom: 210px;
-    /*padding-left: px;*/
-    /*padding-top: 6px;*/
   }
 
   ul {
-
     position: relative;
     text-align: center;
     list-style-type: none;
-    /*top: 30px;
-    right: 15px;*/
-    /*font-size: 85%;*/
-    /*border: 1px dotted yellow;*/
-
   }
 
   li {
-
     font-size: 15.4px;
     position: relative;
     bottom: 25px;
-
   }
 
   .day1, .day2, .day3, .day4 {
-
     right: 3px;
-
   }
 
   .day5 {
-
     left: 15px;
-
   }
 
 }
 
 @media only screen and (min-width: 360px) {
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 100px;
@@ -332,43 +263,31 @@ li:hover {
     bottom: 210px;
     padding-left: 12px;
     padding-top: 6px;
-    /*border: 1px dotted yellow;*/
-
   }
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 125px;
     font-size: 25px;
-
   }
 
   .js-query {
-
     width: 150px;
     font-size: 20px;
-
   }
 
   li {
-
     font-size: 16px;
     position: relative;
     bottom: 25px;
-
   }
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 25px;
-
   }
 
   .js-forecast-temp {
-
     width: 55%;
-
   }
 
   .day1, .day2, .day3, .day4, {
@@ -376,17 +295,14 @@ li:hover {
   }
 
   .day5 {
-
   left: 20px;
-
   }
 
 }
 
 @media only screen and (min-width: 375px) {
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 100px;
@@ -395,49 +311,35 @@ li:hover {
     bottom: 210px;
     padding-left: 16px;
     padding-top: 6px;
-    /*border: 1px dotted yellow;*/
-
   }
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 30%;
     font-size: 25px;
-
   }
 
   .js-query {
-
     width: 160px;
     font-size: 23px;
-
   }
 
   li {
-
     font-size: 16.5px;
     position: relative;
     bottom: 25px;
-
   }
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase {
-
     font-size: 25px;
-
   }
 
   .js-date-time-result {
-
     font-size: 20px;
-
   }
 
   .js-forecast-temp {
-
     width: 55%;
-
   }
 
   .day1, .day2, .day3, .day4, {
@@ -445,9 +347,7 @@ li:hover {
   }
 
   .day5 {
-
   left: 20px;
-
   }
 
 }
@@ -456,8 +356,7 @@ li:hover {
 
 @media only screen and (min-width: 412px) {
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 118px;
@@ -466,59 +365,43 @@ li:hover {
     bottom: 210px;
     padding-left: 16px;
     padding-top: 6px;
-    /*border: 1px dotted yellow;*/
-
   }
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 25px;
-
   }
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 30%;
     font-size: 25px;
-
   }
 
   .js-query {
-
     width: 170px;
     font-size: 24px;
-
   }
 
   ul {
-
     position: relative;
     text-align: center;
     list-style-type: none;
     top: 30px;
     right: 15px;
     font-size: 100%;
-
   }
 
   li {
-
     position: relative;
     bottom: 25px;
-
   }
 
   .day1, .day2, .day3, .day4, {
-
     left: 10px;
-
   }
 
   .day5 {
-
   left: 21px;
-
   }
 ]
 
@@ -526,21 +409,16 @@ li:hover {
 
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 40%;
     font-size: 15px;
-
   }
 
   .js-query {
-
     width: 175px;
-
   }
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 118px;
@@ -549,79 +427,56 @@ li:hover {
     bottom: 210px;
     padding-left: 16px;
     padding-top: 6px;
-    /*border: 1px dotted yellow;*/
-
   }
 
   h2 {
-
     position: relative;
     left: 20px;
-
   }
 
   li {
-
     font-size: 20px;
     position: relative;
     bottom: 40px;
-
   }
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 25px;
-
   }
 
   .day1, .day2, .day3, .day4, {
-
     left: 10px;
-
   }
 
   .day5 {
-
     left: 22px;
-
   }
-
 }
 
 
 @media only screen and (min-width: 550px) {
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 25px;
-
   }
 
   .js-date-time-result {
-
     width: 40%;
-
   }
 
   .js-city-result {
-
     font-size: 300%;
-
   }
 
   .js-forecast-temp {
-
     position: relative;
     height: 25%;
     width: 30%;
     bottom: 75px;
-    /*left: px;*/
     font-size: 20px;
-
   }
 
   h2 {
-
     position: relative;
     font-size: 20px;
     width: 35%;
@@ -632,39 +487,29 @@ li:hover {
     font-family: Arial;
     color: #fff;
     font-size: 25px;
-    /*text-align: center;*/
-
   }
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 30%;
     font-size: 25px;
-
   }
 
   ul {
-
     position: relative;
     text-align: center;
     list-style-type: none;
     top: 30px;
     right: 15px;
-    /*font-size: 130%;*/
-
   }
 
   li {
-
     font-size: 20px;
     position: relative;
     bottom: 10px;
-
   }
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 85px;
@@ -674,50 +519,39 @@ li:hover {
     padding-left: 4px;
     padding-top: 4px;
     padding-bottom: 4px;
-
   }
 
   .day1, .day2, .day3, .day4, .day5 {
-
     position: relative;
     display: inline-block;
     width: 15%;
     padding: 15%;
     height: 32%;
-
 }
 
 @media only screen and (min-width: 768px) {
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 30%;
     font-size: 25px;
-
   }
 
   ul {
-
     position: relative;
     text-align: center;
     list-style-type: none;
     top: 30px;
     right: 15px;
-    /*font-size: 140%;*/
-
   }
 
   li {
-
     font-size: 25px;
     position: relative;
     bottom: 25px;
-
   }
 
   h2 {
-
     position: relative;
     font-size: 20px;
     width: 35%;
@@ -728,11 +562,9 @@ li:hover {
     font-family: Arial;
     color: #fff;
     font-size: 25px;
-
   }
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 150px;
@@ -742,98 +574,75 @@ li:hover {
     padding-left: 4px;
     padding-top: 4px;
     padding-bottom: 4px;
-
   }
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 30px;
-
   }
 
   .js-date-time-result {
-
     position: relative;
     width: 58%;
-
   }
 
   .day4, .day5 {
     left: 30px;
-
   }
 
 }
+
 @media only screen and (min-width: 1024px) {
 
-  .container {
-
-    height: 1150px;
-
+  .titlePage {
+    position: relative;
+    height: 1250px;
+    bottom: 75px;
+    margin-bottom: 0;
   }
 
   header {
-
     position: relative;
     top: 180px;
     width: 100%;
-
   }
 
   .js-query, .js-submit {
-
     height: 50px;
     width: 30%;
     font-size: 25px;
-
   }
 
   .js-query {
-
     text-indent: 10px;
-
   }
 
 
   .searchResultsContainer {
-
     background-color: #240e35;
     position: relative;
     top: 225px;
     height: 50%;
     width: 50%;
-
     }
 
   ul {
-
     position: relative;
     text-align: center;
     list-style-type: none;
-    /*top: 5px;
-    right: 5px;*/
-    /*font-size: 160%;  */
-
   }
 
   li {
-
     font-size: 30px;
     position: relative;
     bottom: 15px;
-
   }
-
-  .container-2 {
-
+.forecastPage {
     position: relative;
     top: 225px;
-
   }
 
 
   h2 {
-
     position: relative;
     font-size: 20px;
     width: 40%;
@@ -844,11 +653,9 @@ li:hover {
     font-family: Arial;
     color: #fff;
     font-size: 34px;
-
   }
 
-  .container-3 {
-
+  .fiveDayForecast {
     position: relative;
     float: right;
     left: 210px;
@@ -858,31 +665,21 @@ li:hover {
     padding-left: 4px;
     padding-top: 4px;
     padding-bottom: 4px;
-
   }
 
   .js-forecast-temp, .js-forecast-results, .js-forecast-phrase, .js-date-time-result  {
-
     font-size: 30px;
-
   }
 
   .js-date-time-result {
-
     width: 54%;
-
   }
 
   .js-forecast-phrase {
-
     width: 50%;
-
   }
 
   .day4, .day5 {
-
     left: 40px;
-
   }
-
 }
