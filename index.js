@@ -87,8 +87,10 @@ function renderForecast(data, index, days) {
     day: "numeric", hour: "2-digit", minute: "2-digit"
   };
   let target = getForecastTarget(index);
-  let localDate = d.toLocaleTimeString("en-us", options).slice(0, 3);
-  target.html(localDate).addClass(`Icon-${iconNumber} Icon`);
+  let localDate = d.toLocaleTimeString("en-us", options);
+  target.html(localDate.slice(0, 3))
+    .addClass(`Icon-${iconNumber} Icon`)
+    .attr('alt', localDate.split(',')[0]);
 }
 
 function watchLocationClick() {
@@ -109,7 +111,7 @@ function renderLocation(locObject) {
 function displayLocationData(data) {
   if (data.length === 0) {
     console.log(data);
-    $('.js-search-results').html('Please check spelling of city and try again')
+    $('.js-search-results').html('Please check spelling and try again')
                            .addClass("errorMsg");
   } else {
     cities = data;
