@@ -6,6 +6,8 @@ let cities= [];
 let days= [];
 let locationKey;
 
+// first API call to Accuweather
+// returns a list of cities
 function autoComplete(searchTerm, callBack) {
   const query = {
     apikey: aWApiKey,
@@ -22,6 +24,8 @@ function autoComplete(searchTerm, callBack) {
   $.ajax(autoSettings);
 }
 
+// Second API call which returns city searched, date & time, along with weather
+// conditions and five day forecast selection.
 function getFiveDayDataFromApi(location, callBack) {
   const fiveDaySettings = {
     url: aWFiveDayForecastURL + location,
@@ -37,12 +41,14 @@ function getFiveDayDataFromApi(location, callBack) {
   $.ajax(fiveDaySettings).fail(showErr);
 }
 
+//
 function getCurrentCity() {
   return cities.find(function(city) {
     return city.Key === locationKey;
   })
 }
 
+//
 function getFullCityInfo() {
   return getCurrentCity().LocalizedName + ', ' + getCurrentCity().AdministrativeArea.LocalizedName;
 }
@@ -59,6 +65,7 @@ function watchDayClick() {
   })
 }
 
+// Parses out data in JSON returned from API call.
 function showForecastDetails(dayIndex) {
   const data = days[dayIndex];
   console.log(dayIndex, data);
@@ -76,6 +83,7 @@ function showForecastDetails(dayIndex) {
   $('.js-date-time-result').html(localDate);
 }
 
+
 function renderForecast(data, index, days) {
   let forecast = Object.keys(data).map(property => {
     return `<dt>${property}</dt><dd>${JSON.stringify(data[property])}</dd>`;
@@ -89,10 +97,12 @@ function renderForecast(data, index, days) {
   let target = getForecastTarget(index);
   let localDate = d.toLocaleTimeString("en-us", options);
   target.html(localDate.slice(0, 3))
-    .addClass(`Icon-${iconNumber} Icon`)
-    .attr('alt', localDate.split(',')[0]);
+        .addClass(`Icon-${iconNumber} Icon`)
+        .attr('alt', localDate.split(',')[0]);
 }
 
+// listener event for when a user clicks any city yielded from search.
+// invokes the five day forecast API function.
 function watchLocationClick() {
   $('.js-search-results').on('click', 'a' , function(event) {
     event.preventDefault();
@@ -104,21 +114,26 @@ function watchLocationClick() {
   })
 }
 
+// creates a variable that represents the pieces of data pulled from JSON returned
+// after API call. Displays a list of cities to select from.
 function renderLocation(locObject) {
   return `<li><a href='#' data-location-key='${locObject.Key}'>${locObject.LocalizedName}, ${locObject.AdministrativeArea.LocalizedName}, ${locObject.Country.LocalizedName}</a></li>`;
 }
 
 function displayLocationData(data) {
+  //if user spells the city wrong, show error msg
   if (data.length === 0) {
     console.log(data);
     $('.js-search-results').html('Please check spelling and try again')
                            .addClass("errorMsg");
   } else {
     cities = data;
+    // calling the renderLocation function to input html to the dom
     $('.js-search-results').html(data.map(renderLocation));
   }
 }
 
+//
 function displayForecastData(data) {
   days = data.DailyForecasts;
   data.DailyForecasts.map(renderForecast);
@@ -126,6 +141,7 @@ function displayForecastData(data) {
   showForecastDetails(0);
 }
 
+// event listener for when a user types a city and hits the search button.
 function watchSubmit() {
   $('.js-form').on('submit', event => {
     event.preventDefault();
